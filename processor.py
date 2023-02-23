@@ -20,7 +20,7 @@ class OfferProcessor:
         }
     # Regular expectation helper function. DRY regarding.
     def _priceRegExp(self,text:str, multi:int)->float:
-        return float(multi*int(100*float(re.findall('\d+\.\d+', text)[0])))/100
+        return float(multi*int(100*float(re.findall(r'\d+\.\d+', text)[0])))/100
     def _priceHolder(self, package:webdriver)->webdriver:
         price_holder = package.find_elements(By.CLASS_NAME,"package-price")
         if 1 > len(price_holder):
