@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
     - run: sudo apt update
     - run: sudo apt install -y python3-pytest python3-pip python3-selenium jq chromium-driver 
     - run: pytest-3 test.py
