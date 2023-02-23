@@ -1,0 +1,19 @@
+name: simple run test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: apt update
+    - run: apt upgrade -y 
+    - run: apt install -y python3-pytest python3-pip python3-selenium jq chromium-driver 
+    - run: python3 main.py --url=https://wltest.dns-systems.net/
+    - run: cat out.json | jq 
