@@ -1,5 +1,5 @@
 """
-Simple scrapper main loop
+Simple scrapper main
 """
 import json
 import scrapper
