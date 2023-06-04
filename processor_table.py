@@ -1,8 +1,6 @@
 """
 " Table info Processor
 """
-import re
-import copy
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -10,6 +8,8 @@ from selenium.webdriver.common.by import By
 class TableProcessor:
     def readLine(self, table)->list:
         out = []
+        for col in table.find_elements(By.TAG_NAME, "th"):
+            out.append(col.text)
         for col in table.find_elements(By.TAG_NAME, "td"):
             out.append(col.text)
         return out
