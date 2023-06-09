@@ -1,5 +1,5 @@
 """
-scrapper class
+" scrapper class
 """
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -8,7 +8,7 @@ import processor
 
 class Scrapper:
     """ Scrapper (abstract) class """
-    def pageGet(self, url)->list:
+    def pageGet(self, url:str)->list:
         """ scrapper functiondd """
         self._driver.get(url)
         return self._processor.read(self._driver)
@@ -18,7 +18,7 @@ class Scrapper:
     def __init__(self):
         self._chrome_options = Options()
         self._chrome_options.add_argument("--headless")
-        self._processor = processor.OfferProcessor()
+        self._processor = processor.Processor()
         self._driver = webdriver.Chrome(options=self._chrome_options)
 
 class ScrapperLayer:
