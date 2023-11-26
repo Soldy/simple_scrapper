@@ -1,5 +1,5 @@
 """
-" Table info Processor
+" Link Processor
 """
 from selenium import webdriver
 from selenium.webdriver.common.by import By
